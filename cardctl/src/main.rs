@@ -1,7 +1,6 @@
 use clap::Parser;
 mod interface;
 use interface::get_moxfield_deck;
-use serde_json;
 
 /// cardbot cli
 #[derive(Parser, Debug)]

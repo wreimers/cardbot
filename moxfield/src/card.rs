@@ -23,3 +23,12 @@ impl From<CardRaw> for Card {
         }
     }
 }
+
+impl From<&CardRaw> for Card {
+    fn from(card: &CardRaw) -> Self {
+        Card {
+            name: card.card["name"].to_string(),
+            scryfall_id: card.card["scryfall_id"].to_string(),
+        }
+    }
+}

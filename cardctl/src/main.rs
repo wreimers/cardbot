@@ -18,7 +18,7 @@ async fn main() -> Result<(), ()> {
     if !args.moxfield_id.is_empty() {
         match get_moxfield_deck(args.moxfield_id.clone()).await {
             None => {
-                println!("No Moxfield deck found with that ID.");
+                println!("{{\"error\": \"No Moxfield deck found with that ID.\"}}");
             }
             Some(deck) => {
                 println!("{}", serde_json::to_string(&deck).unwrap());

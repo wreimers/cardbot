@@ -1,4 +1,3 @@
-use reqwest;
 use serde::{Deserialize, Serialize};
 
 mod card;
@@ -19,7 +18,7 @@ pub async fn deck_with_public_id(id: &str) -> Result<Option<MoxfieldDeck>, Moxfi
     if !api_result.is_success {
         return Ok(None);
     }
-    match serde_json::from_str::<DeckAPIResult>(&api_result.body.as_str()) {
+    match serde_json::from_str::<DeckAPIResult>(api_result.body.as_str()) {
         Ok(result) => Ok(Some(MoxfieldDeck::from(result))),
         Err(e) => Err(MoxfieldError::from(e)),
     }
@@ -56,26 +55,3 @@ pub enum AllowedAPIMethods {
     #[default]
     GET,
 }
-
-// #[cfg(test)]
-// mod tests {
-//     use super::*;
-//
-//     #[test]
-//     fn deck_valid_network() {
-//         let result = deck("ExruMHPVyEmDf0kg8eWoLw");
-//         assert!(result.is_ok());
-//     }
-//
-//     #[test]
-//     fn deck_invalid_network() {
-//         let result = deck("dEfInItElYnOtAdEcKiD");
-//         assert!(result.is_ok());
-//     }
-//
-//     #[test]
-//     fn deck_noid_network() {
-//         let result = deck("");
-//         assert!(result.is_ok());
-//     }
-// }

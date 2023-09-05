@@ -16,10 +16,22 @@ pub struct CardRaw {
 }
 
 impl From<CardRaw> for Card {
-    fn from(card: CardRaw) -> Self {
+    fn from(rawcard: CardRaw) -> Self {
         Card {
-            name: card.card["name"].to_string(),
-            scryfall_id: card.card["scryfall_id"].to_string(),
+            name: rawcard.card["name"].to_string(),
+            scryfall_id: rawcard.card["scryfall_id"].to_string(),
+        }
+    }
+}
+
+impl From<&CardRaw> for Card {
+    fn from(rawcard_handle: &CardRaw) -> Self {
+        Card {
+            name: rawcard_handle.card["name"].as_str().unwrap().to_string(),
+            scryfall_id: rawcard_handle.card["scryfall_id"]
+                .as_str()
+                .unwrap()
+                .to_string(),
         }
     }
 }

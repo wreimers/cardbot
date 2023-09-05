@@ -8,6 +8,8 @@ edition = "2021"
 [dependencies]
 clap = { version = "4.4.1", features = ["derive"] }
 moxfield = { path = "../moxfield" }
+reqwest = "0.11.20"
+scryfall = { path = "../scryfall" }
 serde = { version = "1.0.188", features = ["derive"] }
 serde_json = { version = "1.0.105", features = ["preserve_order"] }
 tokio = { version = "1.32.0", features = ["full"] }

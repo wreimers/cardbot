@@ -55,26 +55,3 @@ pub enum AllowedAPIMethods {
     #[default]
     GET,
 }
-
-// #[cfg(test)]
-// mod tests {
-//     use super::*;
-//
-//     #[test]
-//     fn deck_valid_network() {
-//         let result = deck("ExruMHPVyEmDf0kg8eWoLw");
-//         assert!(result.is_ok());
-//     }
-//
-//     #[test]
-//     fn deck_invalid_network() {
-//         let result = deck("dEfInItElYnOtAdEcKiD");
-//         assert!(result.is_ok());
-//     }
-//
-//     #[test]
-//     fn deck_noid_network() {
-//         let result = deck("");
-//         assert!(result.is_ok());
-//     }
-// }
